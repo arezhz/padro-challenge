@@ -1,5 +1,10 @@
 :root {
   --font-family: "IRANSansWeb", sans-serif;
+  //global
+  --text: #313235;
+  --bg-gradiant-1: rgba(12, 49, 124, 1);
+  --bg-gradiant-2: rgba(16, 67, 166, 1);
+
   //login
   --login-bg: #fafafa;
   --login-border: 1px solid #eaecf0;
@@ -7,7 +12,6 @@
   --login-description-text: #7e838f;
 
   //button
-  --button-bg: rgb(12, 49, 124);
   --button-bg-gradiant-1: rgba(12, 49, 124, 1);
   --button-bg-gradiant-2: rgba(16, 67, 166, 1);
 }
@@ -18,3 +22,5 @@ body {
   margin: 0;
   padding: 0;
 }
+
+

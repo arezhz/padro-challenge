@@ -3,10 +3,5 @@
 }
 
 .p-button {
-  background: var(--button-bg);
-  background: linear-gradient(
-    90deg,
-    var(--button-bg-gradiant-1) 0%,
-    var(--button-bg-gradiant-2) 100%
-  );
+  @include linearGradient(var(--button-bg-gradiant-1),var(--button-bg-gradiant-2))
 }

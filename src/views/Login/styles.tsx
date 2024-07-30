@@ -23,3 +23,28 @@ export const LoginLogo = styled.div`
   text-align: center;
   margin-bottom: 2rem;
 `;
+
+export const MainText = styled.h1`
+  font-size: 1rem;
+  text-align: center;
+  color: var(--login-main-text);
+`;
+
+export const DescriptionText = styled.span`
+  text-align: center;
+  display: block;
+  color: var(--login-description-text);
+  font-size: 0.875rem;
+`;
+
+export const LoginFormLayout = styled.div`
+  margin-top: 2rem;
+`;
+
+export const SignupRow = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+`;

@@ -1,4 +1,27 @@
-.login-submit--btn {
+@import "../../assets/styles/mixins";
+.login_submit--btn {
   width: 100%;
   margin-top: 1.5rem;
+}
+
+.login_signup--text {
+  color: var(--text);
+  font-size: 0.875rem;
+}
+
+.login_signup--link {
+  @include linearGradient(var(--bg-gradiant-1), var(--bg-gradiant-2));
+  font-size: 0.875rem;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  &:after {
+    content:' ';
+    width: 100%;
+    height: 1px;
+    @include linearGradient(var(--bg-gradiant-1), var(--bg-gradiant-2));
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
 }
