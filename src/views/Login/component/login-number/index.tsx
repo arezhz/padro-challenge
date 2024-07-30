@@ -1,5 +1,9 @@
-import { DescriptionText, MainText } from "../styles";
-
+import { Formik } from "formik";
+import { DescriptionText, LoginFormLayout, MainText } from "../styles";
+import { InputText } from "primereact/inputtext";
+import { FromError } from "../../../../kits/form";
+import { Button } from "primereact/button";
+import styles from "../../styles.module.scss";
 export default function LoginNumber() {
   return (
     <>
@@ -7,6 +11,67 @@ export default function LoginNumber() {
       <DescriptionText>
         برای ورود، لطفا شماره موبایل خود را وارد کنید
       </DescriptionText>
+      <LoginFormLayout>
+        <Formik
+          initialValues={{ phoneNumber: "" }}
+          validate={(values) => {
+            const phoneNumberRegex =
+              /^09(0[1-5]|1[0-9]|3[0-9]|2[0-9]|9[0-9])-?[0-9]{3}-?[0-9]{4}/;
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const errors: any = {};
+            if (!values.phoneNumber) {
+              errors.phoneNumber = "شماره تلفن همراه الزامی است.";
+            } else if (
+              !phoneNumberRegex.test(values.phoneNumber) ||
+              values.phoneNumber.length > 11
+            ) {
+              errors.phoneNumber = "شماره تلفن همراه صحیح نیست.";
+            }
+            return errors;
+          }}
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(() => {
+              alert(JSON.stringify(values, null, 2));
+              setSubmitting(false);
+            }, 400);
+          }}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting,
+            isValid
+            /* and other goodies */
+          }) => (
+            <form onSubmit={handleSubmit}>
+              <InputText
+                type="text"
+                name="phoneNumber"
+                placeholder="شماره موبایل"
+                value={values.phoneNumber}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                invalid={!!(errors.phoneNumber && touched.phoneNumber)}
+              />
+              <FromError>
+                {errors.phoneNumber &&
+                  touched.phoneNumber &&
+                  errors.phoneNumber}
+              </FromError>
+              <Button
+                className={styles["login-submit--btn"]}
+                type="submit"
+                label="ارسال کد‌ تایید"
+                disabled={!isValid || isSubmitting}
+              />
+            </form>
+          )}
+        </Formik>
+      </LoginFormLayout>
     </>
   );
 }

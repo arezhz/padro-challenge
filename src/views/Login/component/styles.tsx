@@ -12,3 +12,7 @@ export const DescriptionText = styled.span`
   color: var(--login-description-text);
   font-size: 0.875rem;
 `;
+
+export const LoginFormLayout = styled.div`
+  margin-top: 2rem;
+`

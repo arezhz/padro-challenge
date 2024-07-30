@@ -1,14 +1,20 @@
-
 :root {
-    --login-bg: #fafafa;
-    --login-border: 1px solid #eaecf0;
-    --login-main-text: #313235;
-    --login-description-text: #7e838f;
-  }
-  
-  body {
-    font-family: "IRANSansWeb";
-    direction: rtl;
-    margin: 0;
-    padding: 0;
-  }
+  --font-family: "IRANSansWeb", sans-serif;
+  //login
+  --login-bg: #fafafa;
+  --login-border: 1px solid #eaecf0;
+  --login-main-text: #313235;
+  --login-description-text: #7e838f;
+
+  //button
+  --button-bg: rgb(12, 49, 124);
+  --button-bg-gradiant-1: rgba(12, 49, 124, 1);
+  --button-bg-gradiant-2: rgba(16, 67, 166, 1);
+}
+
+body {
+  font-family: "IRANSansWeb";
+  direction: rtl;
+  margin: 0;
+  padding: 0;
+}
