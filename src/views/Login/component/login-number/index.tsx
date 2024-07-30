@@ -1,10 +1,15 @@
 import { Formik } from "formik";
-import { DescriptionText, LoginFormLayout, MainText, SignupRow } from "../../styles";
+import {
+  DescriptionText,
+  LoginFormLayout,
+  MainText,
+  SignupRow,
+  SignupRowLink,
+  SignupRowText,
+  SubmitButton,
+} from "../../styles";
 import { InputText } from "primereact/inputtext";
 import { FromError } from "../../../../kits/form";
-import { Button } from "primereact/button";
-import styles from "../../styles.module.scss";
-import { Link } from "react-router-dom";
 export default function LoginNumber() {
   return (
     <>
@@ -45,7 +50,7 @@ export default function LoginNumber() {
             handleBlur,
             handleSubmit,
             isSubmitting,
-            isValid
+            isValid,
           }) => (
             <form onSubmit={handleSubmit}>
               <InputText
@@ -62,8 +67,7 @@ export default function LoginNumber() {
                   touched.phoneNumber &&
                   errors.phoneNumber}
               </FromError>
-              <Button
-                className={styles["login_submit--btn"]}
+              <SubmitButton
                 type="submit"
                 label="ارسال کد‌ تایید"
                 disabled={!isValid || isSubmitting}
@@ -73,8 +77,8 @@ export default function LoginNumber() {
         </Formik>
       </LoginFormLayout>
       <SignupRow>
-        <span className={styles["login_signup--text"]}>حساب کاربری ندارید؟</span>
-        <Link to={"login"} className={styles["login_signup--link"]}>ثبت نام</Link>
+        <SignupRowText>حساب کاربری ندارید؟</SignupRowText>
+        <SignupRowLink to={"login"}>ثبت نام</SignupRowLink>
       </SignupRow>
     </>
   );

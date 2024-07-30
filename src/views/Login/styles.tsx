@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Button } from "primereact/button";
+import { Link } from "react-router-dom";
 
 export const LoginLayout = styled.section`
   background-color: var(--login-bg);
@@ -41,10 +43,34 @@ export const LoginFormLayout = styled.div`
   margin-top: 2rem;
 `;
 
+export const SubmitButton = styled(Button)`
+  width: 100%;
+  margin-top: 1.5rem;
+`;
+
 export const SignupRow = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
   margin-top: 2rem;
+`;
+
+export const SignupRowText = styled.span`
+  color: var(--text);
+  font-size: 0.875rem;
+`;
+
+export const SignupRowLink = styled(Link)`
+  font-size: 0.875rem;
+  position: relative;
+
+  &:after {
+    content: " ";
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
 `;

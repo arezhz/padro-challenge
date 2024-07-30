@@ -23,4 +23,11 @@ body {
   padding: 0;
 }
 
-
+a {
+  @include linearGradient(var(--bg-gradiant-1), var(--bg-gradiant-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  &:after {
+    @include linearGradient(var(--bg-gradiant-1), var(--bg-gradiant-2));
+  }
+}
