@@ -7,7 +7,7 @@ export default function AppRoutes() {
       <Routes>
         <Route index element={<Navigate to="dashboard" replace />} />
 
-         <Route path="login/*" element={<LoginRoutes />} />
+        <Route path="login/*" element={<LoginRoutes />} />
 
         {/*<Route element={<PrivateRoute />}>
           <Route path="dashboard/*" element={<DashboardRoutes />} />

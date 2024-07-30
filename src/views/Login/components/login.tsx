@@ -1,5 +1,7 @@
+import { Button } from "primereact/button";
+
 export default function Login() {
     return (
-        <span>login</span>
+        <Button label="Check" />
     )
 }
