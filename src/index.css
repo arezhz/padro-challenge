@@ -1,0 +1,9 @@
+:root {
+  --login-bg: #fafafa;
+  --login-border: 1px solid #eaecf0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
