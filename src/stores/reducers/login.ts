@@ -13,4 +13,3 @@ export default (state: string | null, action: IActionsDto<string>): string | nul
         return stateClone;
     }
   };
-  
