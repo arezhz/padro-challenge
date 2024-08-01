@@ -10,7 +10,12 @@ import {
 } from "../../styles";
 import { InputText } from "primereact/inputtext";
 import { FromError } from "../../../../kits/form";
+import PhoneNumber from "../../../../stores/actions/phone-number";
+import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 export default function LoginNumber() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <>
       <MainText>به پنل مدیریت تسک پادرو خوش آمدید</MainText>
@@ -36,10 +41,9 @@ export default function LoginNumber() {
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400);
+            dispatch(PhoneNumber(values.phoneNumber));
+            navigate('verification')
+            setSubmitting(false);
           }}
         >
           {({

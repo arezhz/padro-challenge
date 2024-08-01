@@ -1,8 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import PublicRoute from "../../../routes/components/public-route";
 import Login from "..";
-import LoginNumber from "../component/login-number";
-import VerificationCode from "../component/verification-code";
+import { lazy } from "react";
+
+const LoginNumber = lazy(() => import("../component/login-number"));
+const VerificationCode = lazy(() => import("../component/verification-code"));
 
 export default function LoginRoutes() {
   return (

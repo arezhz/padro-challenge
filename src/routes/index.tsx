@@ -1,6 +1,7 @@
+import {lazy} from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import LoginRoutes from "../views/Login/routes";
 
+const LoginRoutes = lazy(() => import('../views/Login/routes'));
 export default function AppRoutes() {
   return (
     <BrowserRouter>
