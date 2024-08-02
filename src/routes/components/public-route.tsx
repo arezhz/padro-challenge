@@ -9,7 +9,7 @@ function PublicRoute() {
       <Outlet />{" "}
     </Suspense>
   ) : (
-    <Navigate to="*" />
+    <Navigate to="/dashboard" />
   );
 }
 
