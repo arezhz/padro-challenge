@@ -15,9 +15,10 @@
   --button-bg-gradiant-1: rgba(12, 49, 124, 1);
   --button-bg-gradiant-2: rgba(16, 67, 166, 1);
 }
-
-body {
+* {
   font-family: "IRANSansWeb";
+}
+body {
   direction: rtl;
   margin: 0;
   padding: 0;

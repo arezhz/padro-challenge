@@ -1,30 +1,34 @@
 import { Formik } from "formik";
 import {
-  DescriptionText,
   LoginFormLayout,
-  MainText,
+  LoginTextWrapper,
   SignupRow,
-  SignupRowLink,
   SignupRowText,
   SubmitButton,
 } from "../../styles";
 import { InputText } from "primereact/inputtext";
 import { FromError } from "../../../../kits/form";
 import PhoneNumber from "../../../../stores/actions/phone-number";
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-export default function LoginNumber() {
+import { ILoginPropsDto } from "../../models/i-login-props.dto";
+import { LinkNavigate, TextBox } from "../../../../kits/shared";
+function LoginNumber({ phoneNumber }: ILoginPropsDto) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
     <>
-      <MainText>به پنل مدیریت تسک پادرو خوش آمدید</MainText>
-      <DescriptionText>
-        برای ورود، لطفا شماره موبایل خود را وارد کنید
-      </DescriptionText>
+      <LoginTextWrapper>
+        <TextBox $size="1rem" $color="var(--login-main-text)">
+          به پنل مدیریت تسک پادرو خوش آمدید
+        </TextBox>
+        <TextBox $size="0.875rem" $color="var(--login-description-text)">
+          برای ورود، لطفا شماره موبایل خود را وارد کنید
+        </TextBox>
+      </LoginTextWrapper>
       <LoginFormLayout>
         <Formik
-          initialValues={{ phoneNumber: "" }}
+          initialValues={{ phoneNumber: phoneNumber || "" }}
           validate={(values) => {
             const phoneNumberRegex =
               /^09(0[1-5]|1[0-9]|3[0-9]|2[0-9]|9[0-9])-?[0-9]{3}-?[0-9]{4}/;
@@ -42,7 +46,7 @@ export default function LoginNumber() {
           }}
           onSubmit={(values, { setSubmitting }) => {
             dispatch(PhoneNumber(values.phoneNumber));
-            navigate('verification')
+            navigate("verification");
             setSubmitting(false);
           }}
         >
@@ -82,8 +86,14 @@ export default function LoginNumber() {
       </LoginFormLayout>
       <SignupRow>
         <SignupRowText>حساب کاربری ندارید؟</SignupRowText>
-        <SignupRowLink to={"login"}>ثبت نام</SignupRowLink>
+        <LinkNavigate to={"login"}>ثبت نام</LinkNavigate>
       </SignupRow>
     </>
   );
 }
+function mapStateToProps(state: any) {
+  const { Login } = state;
+  return { phoneNumber: Login };
+}
+
+export default connect(mapStateToProps)(LoginNumber);

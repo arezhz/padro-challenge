@@ -1,9 +1,16 @@
-import { Navigate, Outlet } from 'react-router-dom';
-import TokenService from '../../utils/services/token.service';
+import { Navigate, Outlet } from "react-router-dom";
+import TokenService from "../../utils/services/token.service";
+import { Suspense } from "react";
 
 function PublicRoute() {
   const hasToken = TokenService.getToken();
-  return !hasToken ? <Outlet /> : <Navigate to="*" />;
+  return !hasToken ? (
+    <Suspense>
+      <Outlet />{" "}
+    </Suspense>
+  ) : (
+    <Navigate to="*" />
+  );
 }
 
 export default PublicRoute;
